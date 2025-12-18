@@ -1,9 +1,9 @@
 # Simple Transaction Engine
 
-This is a simple transaction engine that simulates processing of financial transactions in "bank-like" like style.
+This is a simple transaction engine that simulates processing of financial transactions in "bank-like" style.
 
 It reads the CSV with transaction entries and lazily processes them into user "bank" accounts.
-It then outputs
+It then outputs the list of account states in the CSV format into the STDOUT.
 
 ## Usage
 
