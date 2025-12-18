@@ -14,6 +14,12 @@ cargo run -- <path-to-file.csv> > output.csv
 
 ## Tests
 
+This applications uses unit tests and fuzz testing. 
+Unit tests focus check the handling of each transaction type at a granular level, 
+ensuring the state is valid after each processing.
+
+Fuzz testing is particular relevant for this project since we want to test against all possible permutations of transaction entries.
+We then want to assert that `held` balance is non-negative and assets for `total == held + available` balances.
 
 ### Unit tests:
 ```bash
