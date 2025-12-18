@@ -1,0 +1,17 @@
+[package]
+name = "tx_engine"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+csv = "1.4"
+serde = {version = "1.0", features = ["derive"] }
+rust_decimal = { version = "1.39", features = ["serde-with-str"] }
+arbitrary = { version = "1", features = ["derive"], optional = true }
+
+[dev-dependencies]
+rust_decimal = { version = "1.39", features = ["serde-with-str", "macros"] }
+
+[features]
+arbitrary = ["dep:arbitrary"]

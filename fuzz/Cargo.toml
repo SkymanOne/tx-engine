@@ -1,0 +1,31 @@
+[package]
+name = "tx_engine-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2024"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+csv = "1.4"
+rust_decimal = "1.39"
+
+[dependencies.tx_engine]
+path = ".."
+features = ["arbitrary"]
+
+[[bin]]
+name = "fuzz_csv"
+path = "fuzz_targets/fuzz_csv.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fuzz_transactions"
+path = "fuzz_targets/fuzz_transactions.rs"
+test = false
+doc = false
+bench = false
