@@ -105,12 +105,12 @@ pub fn process_tx(tx: TxType, accounts: &mut Accounts) {
             deposit.dispute = DisputeState::Disputed;
         }
         TxType::Resolve(dispute) => {
-            // if account doesn't exist, there is nothing to dispute
+            // if account doesn't exist, there is nothing to resolve
             let Some(account) = accounts.get_mut(&dispute.client) else {
                 return;
             };
 
-            // if deposit tx doesn't exit, there is nothing to dispute
+            // if deposit tx doesn't exit, there is nothing to resolve
             let Some(deposit) = account.deposit_txs.get_mut(&dispute.tx) else {
                 return;
             };
@@ -132,7 +132,7 @@ pub fn process_tx(tx: TxType, accounts: &mut Accounts) {
                 return;
             };
 
-            // if deposit tx doesn't exit, there is nothing to dispute
+            // if deposit tx doesn't exit, there is nothing to chargeback
             let Some(deposit) = account.deposit_txs.get_mut(&dispute.tx) else {
                 return;
             };
